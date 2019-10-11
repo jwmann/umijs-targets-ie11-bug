@@ -1,0 +1,77 @@
+.pagination {
+  display: flex;
+  position: absolute;
+  right: calc(-35vh + 5vw);
+  top: 30vh;
+  width: 70vh;
+  transform: rotate(90deg);
+  z-index: 999;
+
+  .pageNumbers {
+    list-style-type: none;
+    margin: 0 2%;
+    padding: 0;
+    display: flex;
+    width: 100%;
+
+    .divider {
+      background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #666), color-stop(0%, rgba(255, 255, 255, 0)));
+      background-image: linear-gradient(to right, #666 20%, rgba(255, 255, 255, 0) 0%);
+      background-position: center;
+      background-size: 7px 2px;
+      background-repeat: repeat-x;
+      flex-grow: 1;
+    }
+
+    .pageNumber {
+      position: relative;
+      margin: 0 1%;
+      padding: 0;
+      cursor: pointer;
+
+      .number {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: none;
+        background: transparent;
+
+        &:before {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "";
+          background-color: transparent;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #666;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer;
+          position: absolute;
+        }
+      }
+
+      &:global(.active) {
+        .number:before {
+          border-color: transparent;
+          background-color: #E2211C;
+        }
+      }
+    }
+  }
+
+  .label {
+    text-transform: uppercase;
+    color: #666;
+  }
+}
